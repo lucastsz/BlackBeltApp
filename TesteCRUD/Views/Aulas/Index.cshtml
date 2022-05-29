@@ -1,0 +1,47 @@
+﻿@model IEnumerable<BlackBeltApp.Models.Aula>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_mestre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data_aula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anotacao_aula)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_mestre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_aula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anotacao_aula)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

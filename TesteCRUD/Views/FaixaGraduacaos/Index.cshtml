@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BlackBeltApp.Models.FaixaGraduacao>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_faixa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.id_aluno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data_graduacao_faixa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nivel_faixa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_faixa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_aluno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data_graduacao_faixa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nivel_faixa)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
